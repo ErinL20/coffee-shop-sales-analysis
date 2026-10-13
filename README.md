@@ -13,8 +13,8 @@ This project analyzes transaction data for a local coffee shop to identify sales
 ## SQL Queries Used
 
 1. Total Items Sold by Day of the Week
-   ```sql
- SELECT
+   ``` sql
+     SELECT
  	 CASE strftime ('%w', created_at)
     	when '0' Then 'Sunday'
         when '1' then 'Monday'
@@ -33,7 +33,7 @@ order by total_items_sold asc
 ```
 
 2. Total Sales by Item
-   ```sql
+   ``` sql
    SELECT item_price, SUM(item_price) as total_price, item_name, 
    count (*) as total_items_sold
     FROM orders
@@ -47,7 +47,7 @@ order by total_items_sold DESC
 ```
 
 3. Total Ingredient Cost
-```sql
+``` sql
 SELECT ing_name, ing_price
 from ingredients
 
