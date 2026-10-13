@@ -13,7 +13,7 @@ This project analyzes transaction data for a local coffee shop to identify sales
 ## SQL Queries Used
 
 1. Total Items Sold by Day of the Week
-   ``` sql
+	``` sql
      SELECT
  	 CASE strftime ('%w', created_at)
     	when '0' Then 'Sunday'
@@ -33,13 +33,13 @@ order by total_items_sold asc
 ```
 
 2. Total Sales by Item
-   ``` sql
-   SELECT item_price, SUM(item_price) as total_price, item_name, 
-   count (*) as total_items_sold
-    FROM orders
+``` sql
+SELECT item_price, SUM(item_price) as total_price, item_name, 
+count (*) as total_items_sold
+FROM orders
  
 inner JOIN items
-	On orders.item_id = items.item_id
+On orders.item_id = items.item_id
     
 group by item_name
 order by total_items_sold DESC
